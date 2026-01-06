@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Registered Users</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Serial No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Car Name</th>
+            <th>Car Model</th>
+            <th>Fuel Type</th>
+            <th>Color</th>
+            <th>Showroom</th>
+        </tr>
+
+        {% for r in registrations %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ r.full_name }}</td>
+            <td>{{ r.email }}</td>
+            <td>{{ r.phone }}</td>
+            <td>{{ r.car_name }}</td>
+            <td>{{ r.car_model }}</td>
+            <td>{{ r.fuel_type }}</td>
+            <td>{{ r.color }}</td>
+            <td>{{ r.nearest_showroom }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

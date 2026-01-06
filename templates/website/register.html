@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container w-75">
+    <h2 class="text-center my-4">Car Registration Form</h2>
+
+    <form method="POST" action="{% url 'register_car' %}" class="card p-4 gap-3">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="full_name" placeholder="Full Name">
+        <input class="form-control" type="email" name="email" placeholder="Email">
+        <input class="form-control" type="text" name="phone" placeholder="Phone Number">
+        <input class="form-control" type="text" name="car_name" placeholder="Car Name">
+        <input class="form-control" type="text" name="car_model" placeholder="Car Model">
+        <select class="form-control" name="fuel_type">
+            <option value="">Select Fuel Type</option>
+            <option>Petrol</option>
+            <option>Diesel</option>
+            <option>Electric</option>
+            <option>Hybrid</option>
+        </select>
+        <input class="form-control" type="text" name="color" placeholder="Car Color">
+        <select class="form-control" name="nearest_showroom">
+            <option value="">Select Nearest Showroom</option>
+            <option>Pune</option>
+            <option>Mumbai</option>
+            <option>Nashik</option>
+            <option>Satara</option>
+        </select>
+        <button class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+{% endblock %}

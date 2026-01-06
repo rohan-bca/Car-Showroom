@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="display-6 text-center my-4">Edit Car</h1>
+
+    <form method="POST" class="card p-4 w-75 m-auto gap-3">
+        {% csrf_token %}
+
+        <input type="text" 
+               placeholder="Car Name" 
+               value="{{ car.name }}" 
+               name="name" 
+               class="form-control">
+
+        <input type="text" 
+               placeholder="Brand" 
+               value="{{ car.brand }}" 
+               name="brand" 
+               class="form-control">
+
+        <input type="number" 
+               placeholder="Car Price" 
+               value="{{ car.price }}" 
+               name="price" 
+               class="form-control">
+
+        <input type="number" 
+               placeholder="Model Year" 
+               value="{{ car.model_year }}" 
+               name="model_year" 
+               class="form-control">
+
+        <select name="fuel_type" class="form-control">
+            <option value="{{ car.fuel_type }}">Current: {{ car.fuel_type }}</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+        </select>
+
+        <input type="text" 
+               name="color" 
+               value="{{ car.color }}"
+               placeholder="Color"
+               class="form-control">
+
+        <textarea name="description" 
+                  placeholder="Add description..." 
+                  class="form-control">{{ car.description }}</textarea>
+
+        <button class="btn btn-warning" type="submit">Update Car</button>
+    </form>
+</div>
+{% endblock %}

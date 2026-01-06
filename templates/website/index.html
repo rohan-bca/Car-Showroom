@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+
+
+<div class="container my-4">
+
+    <div id="carCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner rounded">
+
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023" 
+                     class="d-block w-100 carousel-img" alt="car1">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" 
+                     class="d-block w-100 carousel-img" alt="car2">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/121335/avinya-exterior-right-front-three-quarter.jpeg?isig=0&q=80" 
+                     class="d-block w-100 carousel-img" alt="car3">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7" 
+                     class="d-block w-100 carousel-img" alt="car4">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+</div>
+
+<style>
+    .carousel-img {
+        height: 420px;        
+        object-fit: cover;    
+    }
+
+    #carCarousel {
+        max-width: 950px;
+        margin: auto;
+    }
+</style>
+
+
+
+<div class="container my-4">
+    <div class="row">
+        {% for car in cars %}
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 my-2">
+                <div class="card shadow-lg p-2">
+                    
+                    <div>{{ car.name }}</div>
+
+                    <img class="my-3 rounded" src="{{ car.image }}" alt="">
+
+                    <p>({{ car.price }})</p>
+                    <p>({{ car.showroom }})</p>
+
+                    <!-- Button section -->
+                    <div class="d-grid mt-1">
+                        <a href="{% url 'car_detail' car.id %}" class="btn btn-primary">
+                            Show Details
+                        </a>
+                    </div>
+
+                </div>
+            </div>            
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
